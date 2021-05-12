@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Paginacao from "./Paginacao";
 import Detalhes from "./Detalhes";
+import Icon from '../info.png';
 import '../index.css';
 
 function List() {
@@ -9,7 +10,7 @@ function List() {
   const [detalhesUrl, setDetalhesUrl] = React.useState('');
   const [total, setTotal] = useState(0);
 
-  const fetchPokemons = async (offset = 1, limit = 20) => {
+  const fetchPokemons = async (offset = 1, limit = 10) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${
       (offset - 1) * limit
     }&limit=${limit}`;
@@ -55,40 +56,55 @@ function List() {
     )
   }
 
-  // function SmoothRectangle({ className = '', border = '', style, size, ...rest }){
-  //   const bsize = size ? `rectangle--${size}` : ''
-  //   return(
-  //     <div className={`${className} ${border} ${bsize}`}
-        
-  //     />
-  //   )
-  // }
+  function SmoothRectangle({className = '', border = '', style, size, ...rest }){
+    const bsize = size ? `rectangle--${size}` : ''
+    return(
+      <div className={`${className} ${border} ${bsize}`}
+          style={{...style}}
+          {...rest}
+      />
+    )
+  }
   return (
-    <div id="list-detalhes-container" className="poke-red" style={{ display: "flex", backgroundColor: '#ec1b23'}}>
-      <div >
-        <table style={{ display: "grid" }}>
-          <label style={{ display: "flex", justifyContent: "center"}}>Pokémon</label>
-          <tbody>
-            {pokemons.map((pokemon, index) => (
-              <tr key={pokemon.name}>
-                <td>#{pokemon.url.split('/')[6]}</td>
-                <td style={{ textTransform: "capitalize" }}>
-                  {pokemon.name}
-                </td>
-                <td>
-                  <button type="button" onClick={() => handleDetalhesClick(pokemon.url)}>Detalhes</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <br />
-        <Paginacao onChange={handlePaginationChange} total={total} />
-      </div>
-      <div >
-        <Detalhes onChange={HandleDetalhesChange} detalhesInfo={detalhes}/>
-      </div>
+    <div>
+      <div style={{ display: 'flex', backgroundColor: '#ec1b23' }}>
+        <div style={{ display: 'flex' }}>
+          <SmoothRectangle className='rectangle' border='thin-black-round' size='big' style={{ backgroundColor: '#fc353b'}}>
+            <div className='frame'>
+              <div className='glass-display'>
+                <table>
+                  <tbody>
+                    {pokemons.map((pokemon) => (
+                      <tr key={pokemon.name}>
+                        <td>#{pokemon.url.split('/')[6]}</td>
+                        <td>
+                          {pokemon.name}
+                        </td>
+                        <td>
+                          <button style={{ backgroundColor: 'transparent' }} type="button" onClick={() => handleDetalhesClick(pokemon.url)}>
+                            <img src={Icon} />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <br />
+          </SmoothRectangle>
+          </div>
+          {/* <div style={{display: 'flex'}}> */}
+          {/* </div> */}
+          <div style={{ display: 'flex' }}>
+          <SmoothRectangle className='rectangle' border='thin-black-round' size='big' style={{ backgroundColor: '#fc353b' }}>
+            <Detalhes onChange={HandleDetalhesChange} detalhesInfo={detalhes} />
+          </SmoothRectangle>
+          </div>
+          <Paginacao onChange={handlePaginationChange} total={total} />
+        </div>
     </div>
+   
   );
 }
 

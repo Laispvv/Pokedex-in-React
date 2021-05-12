@@ -1,11 +1,56 @@
 body{
-    background-color: #161616;
+    background-color: white;
 };
 
 .poke-red{
-    background-color: #ec1b23;
+    background-color: #fc353b;
 }
 
 .details-text{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.rectangle--big{
+    width: 45vw;
+    /* height: 100vh; */
+    margin: 10px 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.thin-black-round{
+    border-radius: 5px;
+    border-color: #080808;
+    border-width: 2px;
+}
+.glass-display{
+    background-color: white;
+    display: flex;
+    border: #080808 solid 3px;
+    margin: 5px;
+    width: 35vw;
+    height: 70vh;
+    justify-content: center;
+}
+
+.rectangle{
+    display: flex;
+    flex: 1;
+}
+
+td, label, .info-poke-item{
+    text-transform: capitalize;
+}
+
+.frame{
+    background-color: #c2c2c2;
+    display: flex;
+    border: #080808 solid 3px;
+    margin: 50px;
+}
+
+button{
+    border-radius: 5px;
+    border-style: solid;
     font-family: 'Courier New', Courier, monospace;
 }

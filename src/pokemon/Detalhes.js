@@ -13,7 +13,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
             <div key='types'>
             <label>Tipo:</label>
                 {types.types.map((item) => (
-                    <div key={`abilities ${item.type.name}`}>
+                    <div className='info-poke-item' key={`abilities ${item.type.name}`}>
                         {item.type.name}
                     </div>
                 ))}
@@ -26,7 +26,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
             <div key='abilities'>
             <label>Habilidades:</label>
                 {abilities.types.map((item) => (
-                    <div key={`abilities ${item.ability.name}`}>
+                    <div className='info-poke-item' key={`abilities ${item.ability.name}`}>
                         {item.ability.name}
                     </div>
                 ))}
@@ -55,7 +55,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
                 </div>
                 <div>
                     <label>Nome:</label>
-                    <div>
+                    <div className='info-poke-item'>
                         {detalhesInfo.name}
                     </div>
                 </div>

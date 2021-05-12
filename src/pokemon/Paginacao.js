@@ -34,7 +34,7 @@ const Paginacao = ({ onChange, total }) => {
   return (
     <div>
       <button disabled={page === "" || page ===1} onClick={handlePreviusClick}>
-        Anterior
+        {"<<"}
       </button>
       <input
         onChange={handleChangeInput}
@@ -42,7 +42,7 @@ const Paginacao = ({ onChange, total }) => {
         style={{ width: 30, marginLeft: 10, marginRight: 10 }}
       />
       <button disabled={page === "" || page >= Math.ceil(total / 20)} onClick={handleNextClick}>
-        Próximo
+        {'>>'}
       </button>
     </div>
   );
