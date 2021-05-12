@@ -6,7 +6,6 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
     useEffect(() => {
         if(detalhes === '') return;
             onChange(detalhes);
-        console.log(detalhes);
     }, [detalhes]);
 
     function MostrarTodosTipos(types){
@@ -23,7 +22,6 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
     }
 
     function MostrarTodasHabilidades(abilities){
-        console.log(abilities.types)
         return (
             <div key='abilities'>
             <label>Habilidades:</label>
@@ -36,10 +34,25 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
         )
     }
 
+    function ShowPokemonSprite(imageUrl, alt){
+        console.log(imageUrl.imageUrl)
+        const url = imageUrl.imageUrl;
+        // const response = await fetch(imageUrl);
+        // const image = await response.json();
+        return(
+            <div>
+                <img src={url} alt={alt}/>
+            </div>
+        )
+    }
+
 
     function InfoPokemon(){
         return(
             <div>
+                <div>
+                    <ShowPokemonSprite imageUrl={detalhesInfo.sprites.front_default} alt={detalhesInfo.name}/>
+                </div>
                 <div>
                     <label>Nome:</label>
                     <div>
