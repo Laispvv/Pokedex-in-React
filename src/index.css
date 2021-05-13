@@ -1,19 +1,44 @@
 body{
     background-color: white;
+    /* overflow-y: hidden */
 };
 
 .poke-red{
-    background-color: #fc353b;
+    background-color: #ec1b23;
 }
 
 .details-text{
     font-family: 'Courier New', Courier, monospace;
 }
 
+.hold-base-container{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    
+}
+.base-pokedex{
+    display: inline-flex;
+    background-color: #ec1b23;
+    width: 75vw;
+    height: 98vh;
+    padding: 40px 0px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
 .rectangle--big{
-    width: 45vw;
-    /* height: 100vh; */
-    margin: 10px 20px;
+    width: 35vw;
+    height: 89.9vh;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.rectangle--medium{
+    width: 35vw;
+    height: 89.9vh;
+    margin: auto;
     justify-content: center;
     text-align: center;
 }
@@ -21,36 +46,114 @@ body{
 .thin-black-round{
     border-radius: 5px;
     border-color: #080808;
-    border-width: 2px;
+    border-width: 3px;
+    border-style: solid;
 }
 .glass-display{
     background-color: white;
     display: flex;
     border: #080808 solid 3px;
     margin: 5px;
-    width: 35vw;
-    height: 70vh;
+    width: 32vw;
+    /* height: 70vh; */
     justify-content: center;
+    text-align: start;
 }
 
 .rectangle{
-    display: flex;
-    flex: 1;
+    display: inline-block;
+    /* flex: 1; */
 }
 
 td, label, .info-poke-item{
     text-transform: capitalize;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #080808;
 }
 
+td{
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+table{
+    /* width: 25vw; */
+    padding-left: 10px;
+}
 .frame{
     background-color: #c2c2c2;
-    display: flex;
+    display: inline-flex;
     border: #080808 solid 3px;
-    margin: 50px;
+    /* margin: 20px; */
+    margin: 50px 0px;
+    width: 32vw;
 }
 
 button{
     border-radius: 5px;
+    border-style: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: #080808;
+    background-color: transparent;
+    vertical-align: bottom;
+}
+
+.glass-display-details{
+    background-color: white;
+    display: inline-flex;
+    margin: 50px 0px;
+    width: 32vw;
+    height: 70vh;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.table-itens{
+}
+
+.details-screen{
+    width: 30vw;
+}
+
+.super-thin-grey-round{
+    border-radius: 5px;
+    border-color: rgb(242, 240, 240);
+    border-width: 2px;
     border-style: solid;
-    font-family: 'Courier New', Courier, monospace;
+}
+
+.details-image{
+    background-color: transparent; 
+    height: 150px;
+    width: 150px;
+    justify-content: center;
+    display: inline-flex;
+}
+
+hr{
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.poke-title{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    padding: 0px;
+    margin: auto;
+    margin-top: 20px;
+    /* position: absolute; */
+    /* display: inline-flexbox; */
+    padding: 40px 0px 0px 0px;
+}
+
+input{
+    border-radius: 6px;
+    margin-bottom: 2px;
+    text-align: center;
+    height: auto;
+    border-style: solid;
 }

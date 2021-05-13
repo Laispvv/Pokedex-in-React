@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const Paginacao = ({ onChange, total }) => {
+const Paginacao = ({ onChange, total, limit = 10}) => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    if (page === "") return;
+    if (page === '') {
+      return;
+    }
     onChange(page);
   }, [page]);
 
@@ -15,8 +17,7 @@ const Paginacao = ({ onChange, total }) => {
   };
 
   const handleNextClick = () => {
-    if (page >= Math.ceil(total / 20)) return;
-
+    if (page >= Math.ceil(total / limit)) return;
     setPage(page + 1);
   };
 
@@ -27,21 +28,21 @@ const Paginacao = ({ onChange, total }) => {
       return setPage("");
     }
 
-    if (value > Math.ceil(total / 20)) return;
+    if (value > Math.ceil(total / limit)) return;
     setPage(value);
   };
 
   return (
     <div>
-      <button disabled={page === "" || page ===1} onClick={handlePreviusClick}>
+      <button disabled={page === "" || page === 1} onClick={handlePreviusClick}>
         {"<<"}
       </button>
       <input
         onChange={handleChangeInput}
         value={page}
-        style={{ width: 30, marginLeft: 10, marginRight: 10 }}
+        style={{ width: 60, marginLeft: 10, marginRight: 10}}
       />
-      <button disabled={page === "" || page >= Math.ceil(total / 20)} onClick={handleNextClick}>
+      <button disabled={page === "" || page >= Math.ceil(total / limit)} onClick={handleNextClick}>
         {'>>'}
       </button>
     </div>
