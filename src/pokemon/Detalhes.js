@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PokeStats from "./PokeStats";
 
 const Detalhes = ({ onChange, detalhesInfo }) => {
     const [detalhes, setDetalhes] = React.useState('');
@@ -34,24 +35,15 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
         )
     }
 
-    function MostrarStatus(stats){
-        return (
-            <div key='stats'>
-            <label>Status:</label>
-                {stats.types.map((item) => (
-                    <div className='info-poke-item' key={`stats ${item.stat.name}`}>
-                        {item.stat.name}: {item.base_stat}
-                    </div>
-                ))}
-            </div>
-        )
-    }
-
     function ShowPokemonSprite(imageUrl, alt){
-        const url = imageUrl.imageUrl;
+        const official = imageUrl.imageUrl.other['official-artwork'].front_default;
+        const dream = imageUrl.imageUrl.other.dream_world.front_default;
+        const pixel = imageUrl.imageUrl.front_default;
+        var url = official;
+        if(official === null) url = dream;
+        if(dream === null) url = pixel;
+        console.log(imageUrl.imageUrl);
         if(url === null) return null;
-        // const response = await fetch(imageUrl);
-        // const image = await response.json();
         return(
             <div>
                 <img src={url} alt={alt} style={{height: '150px', width: '150px'}}/>
@@ -67,6 +59,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
                 <hr/>
                 <div className='details-screen'>
                     <label>Name:</label>
+                    
                 </div>
                 <hr/>
                 <div className='details-screen'>
@@ -88,8 +81,8 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
     function InfoPokemon(){
         return(
             <div style={{}}>
-                <div className='super-thin-grey-round details-screen details-image'>
-                    <ShowPokemonSprite imageUrl={detalhesInfo.sprites.front_default} alt={detalhesInfo.name}/>
+                <div className='details-screen details-image'>
+                    <ShowPokemonSprite imageUrl={detalhesInfo.sprites} alt={detalhesInfo.name}/>
                 </div>
                 <hr />
                 <div className='details-screen'>
@@ -108,7 +101,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
                 </div>
                 <hr />
                 <div className='details-screen'>
-                    <MostrarStatus types={detalhesInfo.stats}/>
+                    <PokeStats statsInfo={detalhesInfo.stats}/>
                 </div>
             </div>
         )

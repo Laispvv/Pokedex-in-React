@@ -4,7 +4,7 @@ body{
 };
 
 .poke-red{
-    background-color: #ec1b23;
+    background-color: #fc353b;
 }
 
 .details-text{
@@ -18,12 +18,11 @@ body{
     
 }
 .base-pokedex{
-    display: inline-flex;
-    background-color: #ec1b23;
+    display: inline-block;
+    background-color: #fc353b;
     width: 75vw;
     height: 98vh;
-    padding: 40px 0px;
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+    padding: 0px 0px 40px 0px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
@@ -86,7 +85,7 @@ table{
     display: inline-flex;
     border: #080808 solid 3px;
     /* margin: 20px; */
-    margin: 50px 0px;
+    margin: 30px 0px;
     width: 32vw;
 }
 
@@ -150,10 +149,57 @@ hr{
     padding: 40px 0px 0px 0px;
 }
 
+.stats-div{
+    display: flex;
+    padding: 3px 0px;
+}
+
 input{
     border-radius: 6px;
     margin-bottom: 2px;
     text-align: center;
     height: auto;
     border-style: solid;
+    font-family: 'Press Start 2P', cursive;
+    border: #080808 solid 2px;
+}
+
+.decorative-ball{
+    background-color: gainsboro;
+    opacity: 0.2;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+.ball--big{
+    width: 25px;
+    height: 25px;
+}
+.ball--medium{
+    width: 20px;
+    height: 20px;
+}
+.ball--small{
+    width: 15px;
+    height: 15px;
+}
+
+.round-button{
+    background-color: #2296f3;
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    margin: 0px 10px 0px -40px;
+    border: #080808 solid 3px;
+}
+
+.input-search{
+    vertical-align: top;
+    width: 300px;
+    margin: 15px 0 0 0;
+    height: 20px;
+    text-align: start;
+    padding: 2px 10px 2px 10px;
 }
