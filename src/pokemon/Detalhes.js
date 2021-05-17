@@ -42,7 +42,6 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
         var url = official;
         if(official === null) url = dream;
         if(dream === null) url = pixel;
-        console.log(imageUrl.imageUrl);
         if(url === null) return null;
         return(
             <div>
