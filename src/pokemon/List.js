@@ -15,7 +15,6 @@ function List() {
   const [total, setTotal] = useState(0);
 
   const fetchPokemons = async (offset = 1, limit = 10) => {
-    console.log(offset);
     var url = '';
     url = `https://pokeapi.co/api/v2/pokemon?offset=${(offset - 1) * limit
       }&limit=${limit}`;
@@ -36,7 +35,6 @@ function List() {
     setImagePokemons(imagens);
   };
 
-  // por que se eu não colocar o detalhes url ai dentro ele não funciona direito?
   const fetchDetalhes = async (detalhesUrl) => {
     const response = await fetch(detalhesUrl);
     const result = await response.json();
@@ -44,7 +42,6 @@ function List() {
   }
 
   useEffect(() => {
-    console.log(imagePokemons);
     fetchImagePokemons(pokemons);
   }, [pokemons]);
 
@@ -83,20 +80,21 @@ function List() {
           <tbody>
             {pokemons.map((pokemon, index) => {
               const src = imagePokemons[index];
-              console.log(pokemon, src, JSON.stringify(imagePokemons));
               return (
                 <tr key={pokemon.name} className={detalhesUrl===pokemon.url ? 'table-itens': ''}>
                   <td>
                     #{pokemon.url.split('/')[6]}
                   </td>
-                  <td>
-                    <img src={src} style={{ width: '60px'}} />
+                  <td className='text-lg'>
+                    <img src={src} className='w-16' />
                   </td>
                   <td>
                     {pokemon.name.replace('-', ' ')}
                   </td>
                   <td>
-                    <button style={{ backgroundColor: 'transparent' }} type="button" onClick={() => handleDetalhesClick(pokemon.url)}>
+                    <button style={{ backgroundColor: 'transparent' }}
+                            type="button" 
+                            onClick={() => handleDetalhesClick(pokemon.url)}>
                       <img className='pokeball-details-button' src={PokeBola} />
                     </button>
                   </td>
@@ -110,7 +108,7 @@ function List() {
   };
 
   return (
-    <div className='hold-base-container'>
+    <div className='hold-base-container p-2'>
 
       <div className='base-pokedex thin-black-round'>
         <div style={{ display: 'flex' }}>
@@ -130,13 +128,19 @@ function List() {
             <label className='poke-title'>Pokémon</label>
             <div className='frame'>
               <div className='glass-display'>
-                <PokeTable pokemons={pokemons} imagePokemons={imagePokemons} handleDetalhesClick={handleDetalhesClick}/>
+                <PokeTable pokemons={pokemons}
+                          imagePokemons={imagePokemons} 
+                          handleDetalhesClick={handleDetalhesClick}
+                />
               </div>
             </div>
             <Paginacao onChange={handlePaginationChange} total={total} />
             <PokeSerch onChange={handleSearchChange} />
           </div>
-          <SmoothRectangle className='rectangle' border='thin-black-round' size='big' style={{ backgroundColor: '#ff4f54' }}>
+          <SmoothRectangle className='rectangle'
+                          border='thin-black-round' 
+                          size='big' 
+                          style={{ backgroundColor: '#ff4f54' }}>
             <div className='glass-display-details thin-black-round'>
               <Detalhes onChange={HandleDetalhesChange} detalhesInfo={detalhes} />
             </div>
@@ -146,6 +150,5 @@ function List() {
     </div>
   );
 }
-
 
 export default List;
