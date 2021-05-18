@@ -18,9 +18,6 @@ const PokeStats = ({onChange, statsInfo}) => {
 
     function CalculatePercentage(baseStats){
         const result = Math.ceil((baseStats.baseStats * 100) / baseStats.stats);
-        if(result < 25) console.log('<25');
-        console.log(result)
-
         var color;
         if (result < 25) color = '#ea2035';
         else if (result >= 25 && result < 50) color = '#e5cc10';
