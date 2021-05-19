@@ -1,22 +1,23 @@
 import React from "react";
 
-const DecorativeBall = ({onChange, ballSize, style}) => {
+const DecorativeBall = ({onChange, color, ballSize, style}) => {
 
-    function DecorativeBall({ size, style, ...rest }) {
+    function DecorativeBall({color='white',size, style, ...rest }) {
         const ballSize = size ? `ball--${size}` : 'ball-medium';
         return (
-            <div className={`${ballSize} decorative-ball`}
+            <div className={`bg-${color}-500 ${ballSize} decorative-ball border-2 border-gray-800`}
                 style={{
-                    backgroundColor: 'gainsboro',
                     ...style
                 }}
                 {...rest}
-            />
+            >
+
+            </div>
         )
     }
 
     return(
-        <DecorativeBall size={ballSize} style={style}/>
+        <DecorativeBall size={ballSize} style={style} color={color}/>
     );
 };
 

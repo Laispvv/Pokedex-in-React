@@ -52,7 +52,8 @@ function List() {
   };
 
   const handleSearchChange = (nameSearch) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${nameSearch}`
+    const name = nameSearch.replace(' ', '-');
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`
     fetchDetalhes(url);
   };
 
