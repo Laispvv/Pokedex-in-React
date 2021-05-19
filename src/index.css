@@ -85,7 +85,7 @@ table{
     display: inline-flex;
     border: #080808 solid 3px;
     /* margin: 20px; */
-    margin: 20px 0px;
+    margin: 10px 0px;
     width: 23vw;
 }
 
@@ -193,7 +193,6 @@ hr{
     width: 2.5vw;
     height: 2.5vw;
     margin: 0px 10px 0px -40px;
-    border: #080808 solid 3px;
 }
 input{
     border-radius: 6px;

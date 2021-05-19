@@ -3,9 +3,11 @@ import Paginacao from "./Paginacao";
 import Detalhes from "./Detalhes";
 import Icon from '../info.png';
 import PokeBola from '../pokeballSimple.png';
+import PokeLogo from '../PokemonLogo.webp';
 import '../index.css';
 import PokeSerch from './PokeSearch';
-import DecorativeBall from './DecorativeBall';
+import DecorativeHeader from "./DecorativeHeader";
+
 
 function List() {
   const [pokemons, setPokemons] = useState([]);
@@ -109,28 +111,16 @@ function List() {
 
   return (
     <div className='hold-base-container p-2'>
-
       <div className='base-pokedex thin-black-round'>
-        <div style={{ display: 'flex' }}>
-          <div style={{ justifyContent: 'start' }}>
-            <DecorativeBall ballSize='big' style={{ marginLeft: '15px' }} />
-            <DecorativeBall ballSize='medium' />
-            <DecorativeBall ballSize='small' />
-          </div>
-          <div style={{ marginLeft: 'auto' }}>
-            <DecorativeBall ballSize='small' />
-            <DecorativeBall ballSize='medium' />
-            <DecorativeBall ballSize='big' style={{ marginRight: '15px' }} />
-          </div>
-        </div>
-        <div style={{ display: 'flex' }}>
+        <DecorativeHeader/>
+        <div className='flex'>
           <div className='rectangle thin-black-round rectangle--medium' style={{ backgroundColor: '#ff4f54' }}>
-            <label className='poke-title'>Pokémon</label>
+            <img src={PokeLogo} className='inline mt-1' style={{width: '150px', justifyContent: 'center'}}/>
             <div className='frame'>
               <div className='glass-display'>
                 <PokeTable pokemons={pokemons}
-                          imagePokemons={imagePokemons} 
-                          handleDetalhesClick={handleDetalhesClick}
+                           imagePokemons={imagePokemons}
+                           handleDetalhesClick={handleDetalhesClick}
                 />
               </div>
             </div>
