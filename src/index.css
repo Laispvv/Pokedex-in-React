@@ -53,6 +53,7 @@ body{
     border: #080808 solid 3px;
     margin: 5px;
     width: 22vw;
+    padding: 0px 10px;
     /* height: 70vh; */
     justify-content: center;
     text-align: start;
@@ -71,8 +72,8 @@ td, label, .info-poke-item{
 }
 
 td{
-    padding-left: 1vw;
-    padding-right: 1vw;
+    /* display: inline-block; */
+    /* /* padding-left: 20%; */
 }
 
 table{

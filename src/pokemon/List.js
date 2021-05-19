@@ -87,7 +87,7 @@ function List() {
                   <td>
                     #{pokemon.url.split('/')[6]}
                   </td>
-                  <td className='text-lg'>
+                  <td className='text'>
                     <img src={src} className='w-16' />
                   </td>
                   <td>
@@ -97,7 +97,7 @@ function List() {
                     <button style={{ backgroundColor: 'transparent' }}
                             type="button" 
                             onClick={() => handleDetalhesClick(pokemon.url)}>
-                      <img className='pokeball-details-button' src={PokeBola} />
+                      <img className='pokeball-details-button w-18' src={PokeBola} />
                     </button>
                   </td>
                 </tr>

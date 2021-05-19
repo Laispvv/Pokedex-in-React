@@ -17,11 +17,11 @@ const PokeSerch = ({ onChange }) => {
 
 
     return(
-        <div className='inline-flex'>
-            {/* <span class="inline-flex h-1 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-            </span> */}
+        <div className='inline-flex items-bottom'>
+            <div class="-ml-10 mr-5 lg:inline-flex self-end hidden">
+                <span class="self-end animate-ping h-8 w-8 absolute inline-flex rounded-full bg-blue-400 opacity-75 "></span>
+                <span class="self-end relative inline-flex rounded-full h-8 w-8 bg-blue-500 "></span>
+            </div>
             {/* <button className='border-2 border-gray-700 round-button animate-ping ' >
             </button> */}
             <input className='input-search' onChange={handleInputChange}/>
