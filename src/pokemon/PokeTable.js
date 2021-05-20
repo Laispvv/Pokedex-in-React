@@ -1,19 +1,25 @@
 import PokeBola from '../images/pokeballSimple.png';
+import React, { useEffect, useState } from "react";
 
-const PokeTable = ({ pokemons, imagePokemons, handleDetalhesClick, detalhesUrl }) => {
+const PokeTable = ({ pokemon, handleDetalhesClick, detalhes }) => {
+
+    const getImage = (pokemon) => {
+        return pokemon.sprites.front_default;
+    };
+
+
     return (
         <div>
             <table>
                 <tbody>
-                    {pokemons.map((pokemon, index) => {
-                        const src = imagePokemons[index];
+                    {pokemon.map((pokemon) => {
                         return (
-                            <tr key={pokemon.name} className={detalhesUrl === pokemon.url ? 'table-itens' : ''}>
+                            <tr key={pokemon.name} className={detalhes.id === pokemon.id ? 'table-itens' : ''}>
                                 <td>
-                                    #{pokemon.url.split('/')[6]}
+                                    #{pokemon.id}
                                 </td>
                                 <td className='text'>
-                                    <img src={src} className='w-16' />
+                                    <img src={getImage(pokemon)} className='w-16' />
                                 </td>
                                 <td>
                                     {pokemon.name.replace('-', ' ')}
@@ -21,7 +27,7 @@ const PokeTable = ({ pokemons, imagePokemons, handleDetalhesClick, detalhesUrl }
                                 <td>
                                     <button style={{ backgroundColor: 'transparent' }}
                                         type="button"
-                                        onClick={() => handleDetalhesClick(pokemon.url)}>
+                                        onClick={() => handleDetalhesClick(pokemon)}>
                                         <img className='pokeball-details-button w-18' src={PokeBola} />
                                     </button>
                                 </td>

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import DecorativeBall from './DecorativeBall';
+import usePokemonSearch from "../hooks/usePokemonSearch";
 
-const PokeSerch = ({ onChange }) => {
-    const [nameSearch, setNameSearch] = React.useState('');
+const PokeSerch = ({ onFilter, page }) => {
+    const [nameSearch, setNameSearch] = useState('');
+    const onSearch = usePokemonSearch();
+    
+    const handleInputChange = (e) => {
+        setNameSearch(e.target.value);
+    };
 
     useEffect(() => {
-        if (nameSearch === '') return;
-        onChange(nameSearch);
-    }, [nameSearch]);
-
-    const handleInputChange = (e) => {
-        const value = e.target.value;
-        if(value !== null) return setNameSearch(value);
-        return setNameSearch('');
-    }
+        console.log(page);
+        const pokemonsFiltered = onSearch(nameSearch);
+        onFilter(pokemonsFiltered, page, 10);
+    }, [onSearch, nameSearch, page]);
 
     return(
         <div className='inline-flex items-bottom'>
@@ -21,8 +21,6 @@ const PokeSerch = ({ onChange }) => {
                 <span class="self-end animate-ping h-8 w-8 absolute inline-flex rounded-full bg-blue-400 opacity-75 "></span>
                 <span class="self-end relative inline-flex rounded-full h-8 w-8 bg-blue-500 border-2 border-gray-800"></span>
             </div>
-            {/* <button className='border-2 border-gray-700 round-button animate-ping ' >
-            </button> */}
             <input className='input-search p-3' onChange={handleInputChange}/>
         </div>
     );
