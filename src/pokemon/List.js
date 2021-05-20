@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Paginacao from "./Paginacao";
 import Detalhes from "./Detalhes";
-import Icon from '../info.png';
-import PokeBola from '../pokeballSimple.png';
-import PokeLogo from '../PokemonLogo.webp';
+import PokeLogo from '../images/PokemonLogo.webp';
 import '../index.css';
 import PokeSerch from './PokeSearch';
 import DecorativeHeader from "./DecorativeHeader";
+import PokeTable from "./PokeTable";
+import SmoothRectangle from "./SmoothRectangle";
 
 
 function List() {
@@ -66,50 +66,7 @@ function List() {
     fetchDetalhes(url);
   };
 
-  const SmoothRectangle = ({ className = '', border = '', style, size, ...rest }) => {
-    const bsize = size ? `rectangle--${size}` : '';
-    return (
-      <div className={`${className} ${border} ${bsize}`}
-        style={{ ...style }}
-        {...rest}
-      />
-    );
-  }
   
-  const PokeTable = ({ pokemons, imagePokemons, handleDetalhesClick }) => {
-    return (
-      <div>
-        <table>
-          <tbody>
-            {pokemons.map((pokemon, index) => {
-              const src = imagePokemons[index];
-              return (
-                <tr key={pokemon.name} className={detalhesUrl===pokemon.url ? 'table-itens': ''}>
-                  <td>
-                    #{pokemon.url.split('/')[6]}
-                  </td>
-                  <td className='text'>
-                    <img src={src} className='w-16' />
-                  </td>
-                  <td>
-                    {pokemon.name.replace('-', ' ')}
-                  </td>
-                  <td>
-                    <button style={{ backgroundColor: 'transparent' }}
-                            type="button" 
-                            onClick={() => handleDetalhesClick(pokemon.url)}>
-                      <img className='pokeball-details-button w-18' src={PokeBola} />
-                    </button>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    );
-  };
-
   return (
     <div className='hold-base-container p-2'>
       <div className='base-pokedex thin-black-round'>
@@ -122,6 +79,7 @@ function List() {
                 <PokeTable pokemons={pokemons}
                            imagePokemons={imagePokemons}
                            handleDetalhesClick={handleDetalhesClick}
+                           detalhesUrl={detalhesUrl}
                 />
               </div>
             </div>
