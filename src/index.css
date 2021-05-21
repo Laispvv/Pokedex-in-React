@@ -34,7 +34,7 @@ body{
 }
 
 .rectangle--medium{
-    width: 25vw;
+    width: 33rem;
     height: 89.9vh;
     margin: auto;
     justify-content: center;
@@ -52,7 +52,7 @@ body{
     display: flex;
     border: #080808 solid 3px;
     margin: 5px;
-    width: 22vw;
+    /* width: 22vw; */
     padding: 0px 10px;
     /* height: 70vh; */
     justify-content: center;
@@ -78,6 +78,7 @@ td{
 
 table{
     /* width: 25vw; */
+    height: fit-content;
     padding-left: 10px;
     border-collapse: collapse;
 }
@@ -87,7 +88,7 @@ table{
     border: #080808 solid 3px;
     /* margin: 20px; */
     margin: 10px 0px;
-    width: 23vw;
+    /* width: 23vw; */
 }
 
 button{
@@ -107,7 +108,7 @@ button{
     width: 32vw;
     height: 70vh;
     justify-content: center;
-    padding: 10px 0px;
+    padding: 3rem;
 }
 
 .table-itens{
@@ -206,7 +207,7 @@ input{
 
 .input-search{
     vertical-align: top;
-    width: 15vw;
+    /* width: 2rem; */
     margin: 15px 0 0 0;
     height: 20px;
     text-align: start;

@@ -40,13 +40,13 @@ function List() {
       
   return (
     <div className='hold-base-container p-2'>
-      <div className='base-pokedex thin-black-round'>
+      <div className=' mlg:w-full msm:h-full p-2 base-pokedex thin-black-round'>
         <DecorativeHeader/>
-        <div className='flex'>
-          <div className='rectangle thin-black-round rectangle--medium' style={{ backgroundColor: '#ff4f54' }}>
+        <div className='flex mmd:flex-wrap-reverse'>
+          <div className='msm:w-90 rectangle thin-black-round rectangle--medium' style={{ backgroundColor: '#ff4f54' }}>
             <img src={PokeLogo} className='inline mt-1' style={{width: '150px', justifyContent: 'center'}}/>
-            <div className='frame'>
-              <div className='glass-display'>
+            <div className='w-auto frame'>
+              <div className='xl:w-96 msm:h-96 overflow-y-auto glass-display'>
                 <PokeTable pokemon={pokemons}
                            handleDetalhesClick={handleDetalhesClick}
                            detalhes={detalhes}
@@ -56,11 +56,11 @@ function List() {
             <Paginacao onChange={handleChangePagination} total={total}/>
             <PokeSerch onChange={handleSearchChange} onFilter={fetchFiltered} page={page}/>
           </div>
-          <SmoothRectangle className='rectangle'
+          <SmoothRectangle className='mmd:mb-2 mlg:ml-2 mlg:w-96 rectangle'
                           border='thin-black-round' 
                           size='big' 
                           style={{ backgroundColor: '#ff4f54' }}>
-            <div className='glass-display-details thin-black-round'>
+            <div className='mlg:w-auto overflow-y-auto glass-display-details thin-black-round'>
               <Detalhes onChange={HandleDetalhesChange} detalhesInfo={detalhes} />
             </div>
           </SmoothRectangle>

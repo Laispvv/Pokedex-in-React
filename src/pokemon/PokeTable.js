@@ -9,9 +9,9 @@ const PokeTable = ({ pokemon, handleDetalhesClick, detalhes }) => {
 
 
     return (
-        <div>
-            <table>
-                <tbody>
+        <div >
+            <table >
+                <tbody >
                     {pokemon.map((pokemon) => {
                         return (
                             <tr key={pokemon.name} className={detalhes.id === pokemon.id ? 'table-itens' : ''}>

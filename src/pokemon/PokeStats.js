@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 
-const PokeStats = ({onChange, statsInfo}) => {
+const PokeStats = ({statsInfo}) => {
     const [stats, setStats] = React.useState('');
     const [hp, sethp] = React.useState(255);
     const [attack, setattack] = React.useState(190);

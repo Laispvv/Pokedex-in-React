@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import List from "./pokemon/List";
+import App from "./new/app";
 import './index.css';
 
 ReactDOM.render(
     <React.StrictMode>
-        <List />
+        <App />
     </React.StrictMode>,
     document.getElementById("root")
 );

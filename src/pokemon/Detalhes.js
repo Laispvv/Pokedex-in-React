@@ -52,7 +52,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
 
     if(detalhesInfo === '') {
         return(
-            <div style={{}}>
+            <div>
                 <div className='super-thin-grey-round details-screen details-image' >
                 </div>
                 <hr/>
@@ -79,7 +79,7 @@ const Detalhes = ({ onChange, detalhesInfo }) => {
 
     function InfoPokemon(){
         return(
-            <div style={{}}>
+            <div className="flex-auto flex-initial">
                 <div className='details-screen details-image'>
                     <ShowPokemonSprite imageUrl={detalhesInfo.sprites} alt={detalhesInfo.name}/>
                 </div>
